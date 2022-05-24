@@ -126,26 +126,27 @@ console.log(jonas.getSummary());
 */
 
 //-----CODING CHALLENGE 3
-
+//lage objekt til begge
 const mark = {
     name:'mark',
     mass: 78,
     height: 1.69,
 
     calcBMI = function() {
-        this.markBMI = [mark.mass] / [mark.height] ** 2;
-        return 
+        this.bmi = this.mass / this.height ** 2;
+        return this.bmi
     }
 }
 const john = {
     name:'john',
-    mass: '92',
-    height: '1.95',
+    mass: 92,
+    height: 1.95,
 
 
     calcBMI = function() {
         
     }
 }
-
+mark.calcBMI();
+console.log(mark.bmi);
 
