@@ -3,12 +3,12 @@
 /*
 'strict';
 
-const jonasArray = {
+const jonasArray = [
     'jonas',
     'schmedtmann',
     2037-1991,
     ['michael', 'peter', 'steven']
-};
+];
 //objekter. forskjellige metoder men {} er vanlig
 const jonas = {
     firstName: 'jonas',
@@ -123,15 +123,17 @@ if (jonas.hasDriversLicence) {
 }
 
 console.log(jonas.getSummary());
-*/
+
 
 //-----CODING CHALLENGE 3
-//lage objekt til begge
+//lage objekt til begge personene
+//this refererer til dette objektet
 const mark = {
     name:'mark',
     mass: 78,
     height: 1.69,
-
+    // kalkulere gjennomsnitt bmi i et objekt
+    //.bmi lages her og er ikke skrevet et annet sted tidligere
     calcBMI: function() {
         this.bmi = this.mass / this.height ** 2;
         return this.bmi;
@@ -141,12 +143,85 @@ const john = {
     name:'john',
     mass: 92,
     height: 1.95,
-
-
-    calcBMI = function() {
-        
+    //kopiert akkurat samme funksjon, trenger ikke å gjøre noen endringer, hverken i objektet eller i funksjonen
+    calcBMI: function() {
+        this.bmi = this.mass / this.height ** 2;
+        return this.bmi;
     }
+
 }
+// kan gjøre dette direkte i console.log men dette er en annen metode
 mark.calcBMI();
 console.log(mark.bmi);
 
+// tidligere metode
+console.log(john.calcBMI(john.bmi));
+
+// mark.bmi  refererer først til objekt mark og så refererer til bmi som vi lagde i function
+if (mark.bmi > john.bmi){
+    console.log(`${mark.name}'s bmi (${mark.bmi}) is higher than john's (${john.bmi})!`);
+} else if (john.bmi > mark.bmi){
+    console.log(`${john.name}'s bmi (${john.bmi}) is higher than mark's (${mark.bmi})!`);
+}
+
+
+//------ITERATION: THE FOR LOOP----
+
+
+// isteden for dette
+// console.log('lifthing weigths repetition 1');
+// console.log('lifthing weigths repetition 1');
+// console.log('lifthing weigths repetition 1');
+// console.log('lifthing weigths repetition 1');
+
+//  kan man gjøre dette
+// let fordi det endres senere
+//loopen kjører så lenge det nedenfor er sant. mindre eller det samme som 10
+//rep ++ øker med en, hvis det skal øke med noe annet så er det rep = rep + 5
+// første punkt sier hvor loopen starter, neste sier hvor den slutter og siste sier hvor mye den øker
+// for(let rep = 1; rep <= 10; rep ++){
+//     console.log('lifthing weigths repetition 1');
+//     //putter 10 stk ved siden av setning i console
+// }
+
+// for(let rep = 1; rep <= 10; rep ++){
+//     console.log(`lifthing weigths repetition ${rep}`);
+//     // denne oppdaterer verdien inni stringen og det blir publisert flere ganger
+// }
+// under så starter den med 5 og ikke 1
+// for(let rep = 5; rep <= 10; rep ++){
+//     console.log(`lifthing weigths repetition ${rep}`);
+//     // denne oppdaterer verdien inni stringen og det blir publisert flere ganger
+// }
+for(let rep = 1; rep <= 10; rep ++){
+    console.log(`lifthing weigths repetition ${rep}`);
+    // denne oppdaterer verdien inni stringen og det blir publisert flere ganger
+}
+*/
+
+
+
+//-------LOOPING ARRAYS, BREAKING AND CONTINUING
+
+
+'strict';
+// husk []
+const jonas = [
+    'jonas',
+    'schmedtmann',
+    2037-1991,
+    'teacher',
+    ['michael', 'peter', 'steven'],
+    true
+];
+//uten loop
+
+//console.log(jonas[0]);
+
+//med loop
+// siden det er kun 4 ting i listen så må counter være under 5. som blir i<5
+// jonas.length for å få med alle i listen slik at man ikke trenger å skrive noe konkret/endre det
+for(let i =0; i < jonas.length; i++){
+    console.log(jonas[i], typeof jonas[i]); //i istedenfor 0
+    // typeof for å se hva hver enkelt er(boolean? string? osv)
+}
