@@ -205,23 +205,32 @@ for(let rep = 1; rep <= 10; rep ++){
 
 
 'strict';
-// husk []
+// husk [] for array
 const jonas = [
-    'jonas',
-    'schmedtmann',
-    2037-1991,
-    'teacher',
-    ['michael', 'peter', 'steven'],
-    true
+    'jonas', //string
+    'schmedtmann', //string
+    2037-1991, //number
+    'teacher', // string
+    ['michael', 'peter', 'steven'], // object
+    true //boolean
 ];
+const types = []; // har ikke noe inni seg fordi det skal basere se gpå jonas og blir definert inni loopen
 //uten loop
-
 //console.log(jonas[0]);
 
 //med loop
+
+// i står for iteration
 // siden det er kun 4 ting i listen så må counter være under 5. som blir i<5
 // jonas.length for å få med alle i listen slik at man ikke trenger å skrive noe konkret/endre det
-for(let i =0; i < jonas.length; i++){
+for(let i = 0; i < jonas.length; i++){
     console.log(jonas[i], typeof jonas[i]); //i istedenfor 0
     // typeof for å se hva hver enkelt er(boolean? string? osv)
+    //for å loope kun det som er typesof, lage egen types const og skrive inn under:
+    //types[i] = typeof jonas[i];
+    //annen metode
+    types.push(typeof jonas [i]); //samme resultat
 }
+//types[0] = 'string'; (annen metode, uten loop)
+console.log(types);
+
