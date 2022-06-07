@@ -1,6 +1,19 @@
+// ----- NEW FILE JAVASCRIPT UDEMY----
+'strict';
+
+//----LINKING A JAVASCRIPT FILE-----
+
+// html script notat:  
+/*<body>
+    <script src="NewScript.js"></script>
+  </body>
+
+*/
+
 /*
 
-// -----VARIABLER -----
+//----VALUES AND VARIABLES----
+
 let js = 'amazing';
 
 console.log(40 + 8 + 23 - 10);
@@ -9,6 +22,7 @@ console.log(40 + 8 + 23 - 10);
 console.log("jonas");
 console.log(23);
 
+//let firstname er en variabel, mathilda er verdien
 let firstName = "Mathilda";
 
 
@@ -28,7 +42,25 @@ let myCurrentJob = 'Teacher';
 
 console.log(myFirstJob);
 
+
+
+
+//-------DATA TYPES-----
+
+// 7 primitive data types:
+
+// 1: Number, 
+// 2: string, 
+// 3: Boolean (true or false), 
+// 4: Undefined (variable not yet defined)
+// 5: Null (also means emphty value)
+// 6: Symbol(introdusert i ES2015) unik verdi som ikke kan endre seg
+// 7: BigInt (ES2020) Larger integers than the number type can hold
+
+
+
 let javascriptIsFun = true;
+//console må være etter variabel for å kunne kjøre
 console.log(javascriptIsFun);
 
 //se hva de under er i chrome console
@@ -38,6 +70,7 @@ console.log(typeof javascriptIsFun);
 //console.log(typeof 23);
 //console.log(typeof 'jonas');
 
+//endret boolean fra true til en string med ordet yes!
 javascriptIsFun = 'YES!';
 console.log(typeof javascriptIsFun);
 

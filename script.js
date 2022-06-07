@@ -203,8 +203,9 @@ for(let rep = 1; rep <= 10; rep ++){
 
 //-------LOOPING ARRAYS, BREAKING AND CONTINUING
 
-
+/*
 'strict';
+
 // husk [] for array
 const jonas = [
     'jonas', //string
@@ -234,3 +235,125 @@ for(let i = 0; i < jonas.length; i++){
 //types[0] = 'string'; (annen metode, uten loop)
 console.log(types);
 
+const years = [1991, 2007, 1969, 2020];
+
+const ages = [];
+// kalkulerer alder ved å ta 2037 - år i years array
+for (let i = 0; i < years.length; i++){
+    ages.push(2037 - years[i])
+    //kalkulerer en og en 
+}
+console.log(ages); //viser resultat i console
+
+// continue and break
+//continue
+console.log('---only strings----')
+for(let i = 0; i < jonas.length; i++){
+    //bare strings vises i console, hopper over annet. hvis iteration ikke er string, så fortsett
+    if(typeof jonas[i] !== 'string') continue;
+    console.log(jonas[i], typeof jonas[i]);    
+}
+//break
+console.log('---break with number----')
+for(let i = 0; i < jonas.length; i++){
+    // hvis iteration er et nummer, så stopper loopen
+    if(typeof jonas[i] === 'number') break;
+    console.log(jonas[i], typeof jonas[i]);    
+}
+*/
+
+
+//---------LOOPING BACKWARDS AND LOOPS IN LOOPS----------
+/*
+'strict';
+
+const jonas = [
+    'jonas', 
+    'schmedtmann', 
+    2037-1991,
+    'teacher', 
+    ['michael', 'peter', 'steven']
+];
+
+//baklengs loop
+
+//starter på jonas.lenght. 
+// hvis iterasjon er samme eller større enn 0. slik at det stopper der.
+// i-- for å gå motsatt vei
+
+for (let i = jonas.length - 1; i >= 0; i--){
+    console.log(jonas[i]);
+    // for å vise hvilket nr det er, putt inn 'i': console.log(i. jonas[i]);
+}
+
+//vanlig loop
+for (let exercise = 1; exercise < 4; exercise++) {
+    console.log(`------starting exercise ${exercise}`);
+    // exercise kommer 3 ganger i console
+}
+
+//Loop inni loop
+// notat >= 5 er det samme som > 6
+for (let exercise = 1; exercise < 4; exercise++) {
+    console.log(`------starting exercise ${exercise}`);
+
+    for (let rep = 1; rep < 6; rep++){
+        console.log(`lifting weight repetition ${rep}`);
+    }
+    // starting exercise vil loopes 3 ganger og for hver gang vil det starte en egen loop etter(under i console) som kjører 5 ganger
+}
+
+*/
+
+//-------THE WHILE LOOP-------
+/*
+'strict';
+// for referanse
+/*
+for(let rep = 1; rep <= 10; rep ++){
+         console.log(`lifthing weigths repetition ${rep}`);
+         
+    }
+/
+/*
+let rep = 1; //trengte ikke å lage en variabel med loop alene men trenger det nå
+//denne kjøres imens noe er sant. i dette tilfelle kjøres den når rep er samme eller mindre enn 10
+while (rep <= 10) {
+    //console.log(`while test lifthing weigths repetition ${rep}`);
+    rep++;
+}
+// terning kode
+//math.trunc er for å fjerne desimaler
+// math.random() * 6 for å lage et tilfeldig tall mellom 1(+1) og 6
+let dice = Math.trunc(Math.random() * 6) + 1;
+console.log(dice);
+// !== imens verdien er noe annet enn 6
+while (dice !== 6) {
+    console.log(`you rolled a ${dice}`);
+    dice = Math.trunc(Math.random() * 6) + 1;
+    // === hvis dice er det samme som 6
+    if (dice === 6) console.log('loop is about to end');
+}
+*/
+
+//------CODING CHALLENGE 4------
+
+
+
+'strict';
+
+
+
+const calcTip = function (bills) {
+    return bills >= 50 && bills <= 300 ? bills * 1.15 : bills * 0,2*;
+}
+
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips = [];
+const totals = [];
+
+for(let i = 0; i < bills.length; i++){
+    const tip = calcTip(bills[i]);
+    tips.push(tip);
+    totals.push(tip + bills[i]);
+}
