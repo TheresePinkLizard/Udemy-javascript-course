@@ -65,11 +65,13 @@ console.log(javascriptIsFun);
 
 //se hva de under er i chrome console
 
-//console.log(typeof true);
+//console.log(typeof true); // viser resultat av typeof i console(henter verdi fra javascriptisfun)
 console.log(typeof javascriptIsFun);
 //console.log(typeof 23);
 //console.log(typeof 'jonas');
 
+
+//-----dynamic typing
 //endret boolean fra true til en string med ordet yes!
 javascriptIsFun = 'YES!';
 console.log(typeof javascriptIsFun);
@@ -79,6 +81,7 @@ let year;
 console.log(year);
 console.log(typeof year);
 
+// year får en verdi
 year = 1991;
 console.log(typeof year);
 
@@ -86,7 +89,7 @@ console.log(typeof null);
 
 
 
-//------CONST, VAR -----
+//------LET, CONST, VAR -----
 
 let age = 30;
 //gir en ny verdi senere i koden hvis det for eksempel skal skje noen endriner. term ofte brukt for dette er: mutate the variabel
@@ -100,21 +103,26 @@ const birthYear = 1991;
 //betyr å definere variabel
 //const job;
 
+
+// var ligner på let men forskjellen kommer senere i kurset. ikke bruk var
 var job = 'programmer';;
 job = 'teacher';
 
-//burde ikke skrive slik som under, burde declare en variabel
+//burde ikke skrive slik som under, burde declare en variabel, const
 lastName = 'Schmedtmann';
 console.log(lastName);
 
 
-//------BASIC OPERATORS----
+//14------BASIC OPERATORS----
+
+
 // MATH OPERATORS
 const now = 2037;
 const ageJonas = now - 1991;
 const ageSarah = now - 2018;
 console.log(ageJonas, ageSarah);
 
+// komma mellom regnestykkene, regnes separat
 console.log(ageJonas * 2, ageJonas / 10, 2 ** 3);
 // 2 **3 means 2 to the power of 3 = 2*2*2
 
@@ -142,6 +150,11 @@ const isFullAge = ageSarah >= 18;
 console.log(now - 1991 > now - 2018);
 
 
+
+//15-----OPERATOR PERCEDENCE-----
+
+//lenke til matte rekkefølge prioritering, hva kalkuleres først
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence
 const now = 2037;
 const ageJonas = now - 1991;
 const ageSarah = now - 2018;
@@ -174,6 +187,10 @@ const BMIJohn = massJohn / (heightJohn * heightJohn);
 const markHigherBMI = BMIMark > BMIJohn;
 
 console.log(BMIMark, BMIJohn, markHigherBMI);
+
+----------2 forsøk------------
+
+
 
 
 //-------STRINGS AND TEMPLATE LITERALS---------
