@@ -298,44 +298,79 @@ else {
 */
 
 //-------forsøk 2--------
-
-
-
-
-// ----TYPE CONVERSION AND COERCION----
 /*
+const markMass = 78;
+const markHeight = 1.69;
+
+const johnMass = 92;
+const johnHeight = 1.95;
+
+const markBMI = (markMass / markHeight **2);
+const johnBMI = (johnMass / johnHeight **2);
+
+if (markBMI > johnBMI){
+    console.log(`marks bmi ${markBMI} is higher than johns bmi ${johnBMI}`);
+}
+else {
+    console.log(`marks bmi ${markBMI} is lower than johns bmi ${johnBMI}`);
+}
+
+*/
+
+
+
+// ----TYPE CONVERSION AND type COERCION----
+/*
+// ---type conversion
+// type conversion endrer manuelt, men type coercion endrer automatisk
 const inputYear = '1991';
 console.log(inputYear + 18);
 
 
 // resultatet her bli 199118, som er feil. se løsning under
 //convertion
+//konverterer string til nummer
 const inputYear = '1991';
-console.log(Number(inputYear), inputYear);
+console.log(Number(inputYear), inputYear); //console(viser etter og så før): 1991 "1991"
+// her blir 1991 gjort om til et nummer som gjør at man kan plusse det med 18
 console.log(Number(inputYear) + 18);
 
+
+// jonas er ikke et nummer så console blir NaN(not a number)
 console.log(Number('Jonas'));
 console.log(typeof NaN);
 
+//her blir number convertert til string
 console.log(String(23), 23);
 
-//type coerccion
+
+
+//----type coerccion
+//mange liker ikke dette hvis man ikke har oversikt på hvordan det fungerer
 //          string  number     string
+// konverterer automatisk nummer til en string
 console.log('I am ' + 23 + ' years old')
-// Noen programmer krever at man gjøre dette:
+
+// Noen programmer er ikke automatisk og krever at man gjøre dette:
 console.log('I am ' + String(23) + ' years old')
-//nedenfor konverterte til number
+
+
+//nedenfor konverterte til number, regner ut og svaret kommer i console
 console.log('23' - '10' - 3); // = 10
 
+//med + så blir det gjort om til string
 console.log('23' + '10' + 3); // = 231003
+
+//blir gjort om til number
 console.log('23' * '2'); // = 46
 
+//eksempel
 let n = '1' + 1; // = 11
 n = n - 1;   // - 1
 console.log(n);  // = 10
 
-//eksempel: 2+3+4+'5' Dette blir lagt sammen først 2+3+4 = 9, så legger den til 5 etterpå som blir 95 (konvertert til string)
-//eksempel2: '10'-'4'-'3'- 2 +'5' = 15 (addere, så minus 2 og så legge på 5)
+//eksempelconsole: 2+3+4+'5' Dette blir lagt sammen først 2+3+4 = 9, så legger den til 5 etterpå(firdi det er en string) som blir 95 (konvertert resultat til string)
+//eksempelconsole2: '10'-'4'-'3'- 2 +'5' = 15 (addere, så minus 2 og så legge på 5)
 
 
 
@@ -377,20 +412,22 @@ else {
 
 
 
-//------- EQUALITY OPERATORS == VS. ===   --------
+//------- EQUALITY OPERATORS == VS. ===  og !== --------
 
 const age = 18;
 if (age === 18) console.log('You just became a adult')
-// === betyr hvis age er presist 18, trenger ikke under if {}
-// == betyr at den kan gjøre en coersjon, som betyr å endre fra string til number
+// === hvis age er presist 18, så slår den ut
+// == kan gjøre en coersjon, en string '18' kan gjøres om til number 18
 //eks: '18' == 18 = true (loose) (unngå denne så mye som mulig for å unngå bugs)
 // eks: '18' === 18 = false (strict)
 
+// lage prompt(promt lager pop up)
+Number(prompt("What's your favorite number");
 
-
+//lagre verdien et sted
+//number fordi det du skriver i prompt skal være et nummer og ikke en string
 const favourite = Number(prompt("What's your favorite number"));
-//må ha number for at det ikke skal være en string
-// promt lager pop up
+
 
 console.log(favourite); //svaret du legger i promt havner i console
 console.log(typeof favourite); // typeof = for å få svar på hva er dette for noe? string? number?
@@ -407,15 +444,57 @@ else if (favourite === 5) {
 else {
     console.log('number is not 23 or 7')
 }
+
+
+// --- different operator
 // hvis valget ditt ikke er det spesifike under så kommer denne mld opp også
+
 if (favourite !== 23) console.log('why not 23');
+
 
 */
 /*
 
 //-------BOOLEAN LOGIC-------
 
-// ---LOGICAL OPERATORS-----
+//true table (brukes som referanse)
+
+
+//1 AND operator = &&
+// true when all are true
+
+                A
+        AND  | TRUE | FALSE
+    B   TRUE | true   false
+        FALSE| false  false
+
+//2 OR operator = ||
+// true when one is true
+
+                A
+        AND  | TRUE | FALSE
+    B   TRUE | true   true
+        FALSE| true   false
+// 3
+ inverts thew value to the opposite
+ 
+ 
+// eksempel
+age = 16
+
+A: age is greater or equal 20 = false
+B: age is less than 30 = true
+
+!A (som er false) = true
+A and B (false, true) = false (følger AND table)
+A or B (false, true) = true
+!A and B (true, true )= true
+A or !B (false, true(konverteres til det motsatte=false)) = false
+
+// flere eksempler under, hvordan det tas i bruk
+
+//24 ---LOGICAL OPERATORS-----
+
 
 // AND: &&
 // true + true = false. True + false = false. true and true and false = false
@@ -423,26 +502,61 @@ if (favourite !== 23) console.log('why not 23');
 // true + false = true
 // !: betyr motsatt, en negativ
 //
+//&& eksempel 1
 const hasDriversLicence = true; // a
 const hasGoodVision = true; // B
 
-console.log(hasDriversLicence && hasGoodVision);
-console.log(hasDriversLicence || hasGoodVision);
-console.log(!hasDriversLicence);
+console.log(hasDriversLicence && hasGoodVision); = true
 
-// Kan skrivr const slik som under men er vanlig å putte det direkte inn i if ()
-// const shouldDrive = hasDriversLicence && hasGoodVision;
+// && eksempel 2
+const hasDriversLicence = true; // a
+const hasGoodVision = false; // B
 
-/*
+console.log(hasDriversLicence && hasGoodVision); = false
+
+// || eksempel
+const hasDriversLicence = true; // a
+const hasGoodVision = false; // B
+
+console.log(hasDriversLicence || hasGoodVision); = true
+
+
+// ! operator eksempel
+const hasDriversLicence = true; // a
+const hasGoodVision = false; // B
+
+console.log(!hasDriversLicence); = false(fordi hun har førerkort)
+
+
+// Kan skrive const slik som under men er vanlig å putte det direkte inn i if ()
+
+// eksempel utenfor
+const hasDriversLicence = true; // a
+const hasGoodVision = false; // B 
+
+const shouldDrive = hasDriversLicence && hasGoodVision;
+
+if (shouldDrive) {
+    console.log('Sarah is able to drive');
+} else {
+    console.log('Someone else should drive');
+}
+
+
+// eksempel inni
+const hasDriversLicence = true; // a
+const hasGoodVision = false; // B
+
 if (hasDriversLicence && hasGoodVision) {
     console.log('Saharh is able to drive');
 } else {
     console.log('Someone else should drive');
 }
-*/
-/*
+
+// en ny variabel
+const hasDriversLicence = true; // a
+const hasGoodVision = false; // B
 const isTired = false; //C
-console.log(hasDriversLicence && hasGoodVision && !isTired);
 
 if (hasDriversLicence && hasGoodVision && !isTired) {
     console.log('Sarah is able to drive');
@@ -485,6 +599,46 @@ else if (averageScoreDolphins === averageScoreKoalas && averageScoreDolphins >= 
     console.log('nobody wins');
 }
 */
+//-------andre forsøk-----
+/*
+1. regne ut gjennomsnitt av lagene
+2. sammenligne resultatene for å kåre en vinner. putt i console. husk å legge ved uavgjort
+3. inkluder en minimum score på 100. et team vinner bare hvis score er høyere enn det andre laget
+og har høyere enn 100. hint: bruk en logical operator for å teste mimimun score 
+og bruk flere else if blocks
+4. minimum score er også uavgjort
+
+dolphins: 96 108 89
+koalas: 88 91 110
+
+løsning:
+*/
+const scoreDolphins = (96 + 108 + 89) / 3;
+const scoreKoalas = (88 + 100 + 110) / 3;
+console.log(scoreDolphins, scoreKoalas);
+
+//1
+
+if (scoreDolphins > scoreKoalas){
+    console.log(`Dophins win with ${scoreDolphins}`);
+} else if (scoreKoalas > scoreDolphins){
+    console.log(`koalas win with ${scoreKoalas}`);
+} else if (scoreDolphins === scoreKoalas) {
+    console.log('uavgjort');
+} 
+
+//2
+if (scoreDolphins > scoreKoalas && scoreDolphins >= 100){
+    console.log(`Dophins win with ${scoreDolphins}`);
+} else if (scoreKoalas > scoreDolphins && scoreKoalas >= 100){
+    console.log(`koalas win with ${scoreKoalas}`);
+} else if (scoreDolphins === scoreKoalas && scoreDolphins >= 100 && scoreKoalas >= 100) {
+    console.log('uavgjort');
+} else {
+    console.log('nobody wins');
+}
+
+
 
 
 //-----THE SWITCH STATEMENT-----

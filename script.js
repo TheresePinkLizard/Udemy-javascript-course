@@ -337,7 +337,7 @@ while (dice !== 6) {
 */
 
 //------CODING CHALLENGE 4------
-
+/*
 
 
 'strict';
@@ -356,4 +356,4 @@ for(let i = 0; i < bills.length; i++){
     const tip = calcTip(bills[i]);
     tips.push(tip);
     totals.push(tip + bills[i]);
-}
+}*/
