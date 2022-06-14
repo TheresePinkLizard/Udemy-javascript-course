@@ -1,6 +1,36 @@
 // ----- NEW FILE JAVASCRIPT UDEMY----
 'strict';
+/*
+UDEMY FROM ZERO TO EXPERT JAVASCRIPT, FUNDAMENTALS DEL 1
 
+MENY:                                           
+KAPITTEL:                                       KODE:
+//------LINKING A JAVASCRIPT FILE------------------16
+//------VALUES AND VARIABLES-----------------------27
+//------DATA TYPES---------------------------------60
+//13----LET, CONST, VAR --------------------------104
+//14----BASIC OPERATORS---------------------------128
+//15----OPERATOR PERCEDENCE-----------------------166
+//16----Challenge 1-------------------------------177
+//17----STRINGS AND TEMPLATE LITERALS-------------220
+//18----TAKING DECISIONS  IF/ ELSE STATEMENTS ----245
+//19 ---Coding challenge -------------------------286
+//20----TYPE CONVERSION AND type COERCION---------336
+//21----TRUTHY AND FALSE VALUES ------------------392
+//22--- EQUALITY OPERATORS == VS. ===  og !== ----432
+//23----BOOLEAN LOGIC-----------------------------475
+//24 ---LOGICAL OPERATORS-------------------------517
+//25 ---CODING CHALLENGE 3------------------------591
+//26----THE SWITCH STATEMENT----------------------670
+//27----STATEMENTS AND EXPRESSIONS----------------730
+//28----THE CONDITIONAL (TERNARY) OPERATOR--------745
+//29----challenge 4-------------------------------775
+
+
+
+
+
+*/
 //----LINKING A JAVASCRIPT FILE-----
 
 // html script notat:  
@@ -89,7 +119,7 @@ console.log(typeof null);
 
 
 
-//------LET, CONST, VAR -----
+//13------LET, CONST, VAR -----
 
 let age = 30;
 //gir en ny verdi senere i koden hvis det for eksempel skal skje noen endriner. term ofte brukt for dette er: mutate the variabel
@@ -162,7 +192,7 @@ const ageSarah = now - 2018;
 console.log(now - 1991 > now - 2018);
 
 
-// ------Challenge 1------
+// 16------Challenge 1------
 
 let x, y;
 x = y = 25 - 10 - 5; // x = y = 10, x = 10
@@ -205,7 +235,7 @@ console.log(markHigherBMI);
 
 
 
-//-------STRINGS AND TEMPLATE LITERALS---------
+//17-------STRINGS AND TEMPLATE LITERALS---------
 
 const firstName = 'Jonas';
 const job = 'teacher';
@@ -230,7 +260,7 @@ lines`);
 
 
 
-// ----TAKING DECISIONS  IF/ ELSE STATEMENTS ----
+// 18----TAKING DECISIONS  IF/ ELSE STATEMENTS ----
 
 
 const age = 16;
@@ -270,7 +300,7 @@ if (birthYear <= 2000) {
 console.log(century);
 
 
-// ------Coding challenge ------------
+//19 ------Coding challenge ------------
 
 
 const massMark = 78;
@@ -319,7 +349,7 @@ else {
 
 
 
-// ----TYPE CONVERSION AND type COERCION----
+// 20----TYPE CONVERSION AND type COERCION----
 /*
 // ---type conversion
 // type conversion endrer manuelt, men type coercion endrer automatisk
@@ -375,7 +405,7 @@ console.log(n);  // = 10
 
 
 
-//-----TRUTHY AND FALSE VALUES ------
+//21-----TRUTHY AND FALSE VALUES ------
 
 //5 FALSY VALUES: 0, '', UNDEFINED, NULL, NaN
 
@@ -411,8 +441,7 @@ else {
 
 
 
-
-//------- EQUALITY OPERATORS == VS. ===  og !== --------
+//22------- EQUALITY OPERATORS == VS. ===  og !== --------
 
 const age = 18;
 if (age === 18) console.log('You just became a adult')
@@ -455,7 +484,7 @@ if (favourite !== 23) console.log('why not 23');
 */
 /*
 
-//-------BOOLEAN LOGIC-------
+//23-------BOOLEAN LOGIC-------
 
 //true table (brukes som referanse)
 
@@ -492,6 +521,9 @@ A or B (false, true) = true
 A or !B (false, true(konverteres til det motsatte=false)) = false
 
 // flere eksempler under, hvordan det tas i bruk
+
+
+
 
 //24 ---LOGICAL OPERATORS-----
 
@@ -565,7 +597,7 @@ if (hasDriversLicence && hasGoodVision && !isTired) {
 }
 */
 
-// ------CODING CHALLENGE 3-----
+//25 ------CODING CHALLENGE 3-----
 /*
 const averageScoreDolphins = (96 + 108 + 89) / 3;
 const averageScoreKoalas = (88 + 100 + 110) / 3;
@@ -613,6 +645,7 @@ koalas: 88 91 110
 
 løsning:
 */
+/*
 const scoreDolphins = (96 + 108 + 89) / 3;
 const scoreKoalas = (88 + 100 + 110) / 3;
 console.log(scoreDolphins, scoreKoalas);
@@ -638,11 +671,14 @@ if (scoreDolphins > scoreKoalas && scoreDolphins >= 100){
     console.log('nobody wins');
 }
 
+*/
 
 
-
-//-----THE SWITCH STATEMENT-----
+//26-----THE SWITCH STATEMENT-----
 /*
+
+// 
+
 const day = 'thursday';
 
 switch (day) {
@@ -664,7 +700,7 @@ switch (day) {
     case 'sunday':
         console.log('enjoy the weekend');
         break;
-    default:
+    default:                        // hvis ingenting matcher (day) så slår denne ut
         console.log('not a valid day');
 }
 
@@ -698,22 +734,28 @@ else {
 
 //----STATEMENTS AND EXPRESSIONS----
 
-
+// (statement)
 if (23 > 10) {
     const str = '23 is bigger';
 }
+
+
 const me = 'jonas';
-console.log(`I'm ${2037 - 1991} years old ${me}`)
+
+//                 (expression)=lager en verdi              (expression)
+console.log(`I'm       ${2037 - 1991}            years old     ${me}`)
 
 
 
 
-//----THE CONDITIONAL (TENARY) OPERATOR----
+//----THE CONDITIONAL (TERNARY) OPERATOR----
 
 //en annen måte å lage if og else. ikke mye brukt
+
 const age = 23;
-// age >= 18 ? console.log('I like to drink wine') :
-//     console.log('I like to drink water');
+// hvis age er det samme eller høyere enn 18 blir console utløst, hvis ikke (:) så blir neste utløst
+age >= 18 ? console.log('I like to drink wine') : console.log('I like to drink water');
+
 
 // enda en metode (best fordi oppgaven er kort og enkel)
 // større blokker med kode trenger if else
@@ -721,7 +763,9 @@ const drink = age >= 18 ? 'wine' : 'water';
 console.log(drink);
 
 //annen metode med if og else
+
 let drink2;
+
 if (age >= 18) {
     drink2 = 'wine';
 } else {
@@ -763,9 +807,24 @@ const bill = 430;
 const tip = bill <= 300 && bill >= 50 ? bill * 0.15 : bill * 0.2;
 console.log(`the bill was ${bill}, the tip was ${tip}, and total value was ${bill + tip} `);
 
-*/
 
+
+//------andre forsøk----------
+
+const bill = 275;
+
+const tip = bill >= 50 && bill <= 300 ? bill * 0.15 :  bill *0.2;
+
+// hvis bill er (dette) samtidig som (dette), slår (dette) ut, ellers slår (dette) ut
+//const tip = bill >= 50    && bill <= 300 ?      bill * 0.15      :       bill *0.2;
+
+console.log(tip);
+console.log(bill + tip);
+
+
+//30------javascript releases
 
 
 //------JAVASCRPIT FUNDAMENTALS - PART 2----
 //------ACTIVATING STRICT MODE------
+*/
