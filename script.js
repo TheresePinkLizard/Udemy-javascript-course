@@ -31,7 +31,7 @@ if (hasDriversLicence) console.log('I can drive');
 */
 
 //33------------  FUNCTIONS -----------------
-
+/*
 'use strict';
 
 
@@ -48,11 +48,11 @@ logger();
 
 // eksempel på annet det kan gjøre. den kan brukes flere ganger, ta imot data og sende tilbake data
 
-// under er en function som skal brukes til å dele opp frukt?
+// under er en function som henter informasjon om hvor mange frukt man har
 
 function fruitProcessor(apples, oranges) {
     const juice = `juice with ${apples} apples and ${oranges} oranges`;
-    return juice;
+    return juice; // henter info utenfra og legger inn i juice over
 }
 const applejuice = fruitProcessor(5, 0); // her legger man til verdien til apples and oranges, 
 //men det er ikke dette som putter det i console. må lagres i en variabel først(const)
@@ -63,11 +63,12 @@ console.log(applejuice); //her puttes det i console
 console.log(fruitProcessor(5, 0));
 
 
-
 const appleOrangeJuice = fruitProcessor(2, 4);
 console.log(appleOrangeJuice);
+
+//lignende eksempel
 const num = Number('23');
-/*
+*/
 
 //------FUNCTION DECLARATIONS VS. EXPRESSIONS------
 /*
@@ -81,14 +82,18 @@ function calcAge1(birthYear) {
     return 2037 - birthYear;
 }
 const age1 = calcAge1(1991); //kan putte denne før function(men ikke en god ide) og definere det senere i koden, men det fungere ikke med expression metoden
-//function expression (fungerer på samme måte som decleration) men skrives på forskjellig måte avhengig av behov. det kommer senere kurset. forskjellen er første linje
+
+//function expression 
+//(fungerer på samme måte som decleration) men skrives på forskjellig måte avhengig av behov. det kommer senere kurset. forskjellen er første linje
 // en variabel som heolder en funksjon. funksjon er en verdi, derfor kan man legge det i en variabel
+
 const calcAge2 = function (birthYear) {
     return 2037 - birthYear;
 }
 const age2 = calcAge2(1991);
 //begge resultatene i console
 console.log(age1, age2);
+
 // handler om preferanse hvilken man velger å bruke(kursholder liker å bruke expressions for å holde seg til å skrive function først og definere snere i koden)
 */
 
