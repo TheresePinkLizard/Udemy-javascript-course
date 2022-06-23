@@ -102,24 +102,35 @@ console.log(age1, age2);
 /*
 // Dette er en tredje type
 'use strict';
-//Arrow function
-//komprimert enda mer. 
+//Arrow function (heter arrow function pga =>)
+//brukes ikke til 'this'?
+//komprimert function enda mer. 
 const calcAge3 = birthYear => 2037 - birthYear;
 const age3 = calcAge3(1991);
 console.log(age3);
+
+
 // annet eksempel. trenger {} under fordi mer kode skal inn
+// () brukes fordi to verdier skal inn, hvis det bare er en så trenger man ikke parantes
 const yearsUntilRetirement = (birthYear, firstName) => {
+    // kalkulerer alder
     const age = 2037 - birthYear;
+    //kalkulerer år igjen til retirement
     const retirement = 65 - age;
     // må legge til return slik når det er flere ting 
-    // return retirement;
+    // return retirement; (hvis det kun er en)
     return `${firstName} retires in ${retirement} years`;
 }
+// under er slik at resultat av funksjon blir lagt til i console direkte.
+//legger også verdien inn her
+//verdi til venstre går til venstre(birthyear) og høyre til høyre(firstname)
 console.log(yearsUntilRetirement(1991, 'Jonas'));
+
+//test med annen verdi
 console.log(yearsUntilRetirement(1980, 'Bob'));
+
+
 */
-
-
 //----------FUNCTIONS CALLING OTHER FUNCTIONS------
 /*
 'use strict';
@@ -135,12 +146,13 @@ function fruitProcessor(apples, oranges) {
 }
 //denne under kaller fruitprocessor(som sender 2 som verdi opp til funksjonen) som kaller cutfruitpieces, som også tar med seg 2, som erstatter fruit parameteren med 2. som da regner 2 * 4 = 8. nummeret 8 blir lagret i applepieces variabelen.
 console.log(fruitProcessor(2, 3));
+
+//eks andre tall
+console.log(fruitProcessor(6, 9));
+
 */
-
-
-
 //-----------REVIEWING FUNCTIONS-----
-/*
+
 'use strict';
 const calcAge = function (birthYear) { //denne birthyear har ikke noe å gjøre med birthyear i den andre funksjonen
     return 2037 - birthYear;
@@ -160,7 +172,7 @@ const yearsUntilRetirement = function (birthYear, firstName) {
 }
 console.log(yearsUntilRetirement(1991, 'jonas,'));
 console.log(yearsUntilRetirement(1950, 'Mike,')); // - 2 resultat
-*/
+
 
 
 //-----------CODING CHALLENGE 1------
