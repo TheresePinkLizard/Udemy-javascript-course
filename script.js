@@ -152,7 +152,7 @@ console.log(fruitProcessor(6, 9));
 
 */
 //-----------REVIEWING FUNCTIONS-----
-
+/*
 'use strict';
 const calcAge = function (birthYear) { //denne birthyear har ikke noe å gjøre med birthyear i den andre funksjonen
     return 2037 - birthYear;
@@ -173,29 +173,63 @@ const yearsUntilRetirement = function (birthYear, firstName) {
 console.log(yearsUntilRetirement(1991, 'jonas,'));
 console.log(yearsUntilRetirement(1950, 'Mike,')); // - 2 resultat
 
-
+*/
 
 //-----------CODING CHALLENGE 1------
-//'use strict';
 /*
-const calcAverage = (a, b, c) => (a + b + c) / 3;
+'use strict';
+
+//arrow function, (a, b, c) er verdien i funksjonen, => dette sier hva som skal skje med verdien
+const calcAverage = (a, b, c) => (a + b + c) / 3; // regner gjennomsnitt
 console.log(calcAverage(3, 4, 5));
+//spesifiserer verdien til a b og c og legger det i en egen variabel(const) 
 const scoreDolphins = calcAverage(44, 23, 71);
 const scoreKoalas = calcAverage(65, 54, 49);
 console.log(scoreDolphins, scoreKoalas);
+
+
 const checkWinner = function (avgDolphins, avgKoalas) {
+    // >= 2 * betyr avgdolphins  er større eller samme som 2 gange avgkoalas
     if (avgDolphins >= 2 * avgKoalas) {
         console.log(`Dolphins win (${avgDolphins} vs. ${avgKoalas})`);
     } else if (avgKoalas >= 2 * avgDolphins) {
         console.log(`Koalas win (${avgKoalas} vs. ${avgDolphins})`);
     }
     else {
-        console.log('noone win');
+        console.log('noone win'); 
     }
     // >= is at least
 }
 checkWinner(scoreDolphins, scoreKoalas); //henter det som ble regnet ut i const scoredolphins
+
+//hvis man har lyst på andre tall senere, ikke lag ny const, men endre det som allerede er der.
+//skriv slik:
+//scoreDolphins = calcaverage(85, 54, 71);
+
 */
+// Funksjon forklaring: (ny notat)
+
+// checkwinner er navn på funksjon, det i parantes er dermed det som skal regnes i funksjonen
+// koden under er det som gjør at funksjonen kjøres/ kaller funksjonen
+// eks: checkWinner(scoreDolphins, scoreKoalas);
+
+// vi kan se hvordan det første i parantesen, scoredolphins, er regnet ut
+// før tallene er oppført så lenkes det til en annen  funksjon kalt calcaverage
+// const scoredolphins = calcaverage(44,23,71);
+// verdien regnes ut her:
+//const calcAverage = (a, b, c) => (a + b + c) / 3; 
+
+// så verdien scoredolphins tar med seg videre er ferdig utregnet når dette er skrevet
+// const scoredolphins = calcaverage(44,23,71);
+
+// dette tas med i hovedfunksjonen
+// const checkWinner = function (avgDolphins, avgKoalas) { 
+//    }
+// men her får det et annet navn, (avgDolphins, avgKoalas) inneholdewr samme verdi
+
+
+
+
 //test 2
 /*
 const calcAverage = (a, b, c) => (a + b + c) / 3;
@@ -221,54 +255,77 @@ console.log(scoreDolphins, scoreKoalas);
 checkWinner(scoreDolphins, scoreKoalas);  //gammelt og nytt resultat vil dukke opp i console pga let som kan endre verdi
 */
 
+
+
 //-------------ARRAYS-----------------
 /*
 'strict';
+// nummer           0,         1,        2,
 const friends = ['michael', 'steven', 'peter'];
+
+//annen metode
 const y = new Array(1991, 1984, 2008, 2020);
+
 console.log(friends);
 console.log(friends[0]); // = michael (første)
 console.log(friends.length); //antall elementer i array
-console.log(friends[friends.length - 1]);  // viser siste
+console.log(friends[friends.length - 1]);  // viser siste i arrayen
+
 //kan endre const når det er en array
 friends[2] = 'jay';
 console.log(friends);
 //nå vil det stå jay i stedet for peter
+
+
 const firstName = 'jonas';
+//kan skrive jonas for seg selv over eller skrive over og deretter hente det inn under med (firstname)
 const jonas = [firstName, 'schmedtmann', 2037 - 1991, 'teacher', friends];
+
 console.log(jonas);
 console.log(jonas.length);
+
 //exercise
 const calcAge = function (birthYear) {
     return 2037 - birthYear;
 }
 const years = [1990, 1967, 2002, 2010, 2018];
+
+// må spesifisere hvilken verdi som  skal brukes i funksjonen fordi en array inneholder flere verdier 
 const age1 = calcAge(years[0]);
+
 const age2 = calcAge(years[1]);
 const age3 = calcAge(years[years.length - 1]);
 console.log(age1, age2, age3);
+
+// man kan plassere function calls i en array fordi det inneholder et nummer
 const ages = [calcAge(years[0]), calcAge(years[1]), calcAge(years[years.length - 1])];
 console.log(ages);
+
+
 */
-
-
 //-------------BASIC ARRAY OPERATORS----------------
 /*
 'strict';
 const friends = ['michael', 'steven', 'peter'];
-//friends.push('Jay'); // push legger til en ekstra på slutten
+
+//friends.push('Jay'); // push legger til en ekstra til en array (på slutten)
 const newLength = friends.push('Jay');
 console.log(friends);
+
 console.log(newLength); // gir informasjon om  nytt antall elementer
+
 friends.unshift('john'); // legger til ny på begynnelsen
 console.log(friends);
+
 friends.pop(); // fjerner siste
 // friends.pop(); // fjerner enda en
 const popped = friends.pop();
 console.log(popped); //viser hvem som er fjernet
 console.log(friends);
+
 friends.shift(); // fjerner begynnelsen
 console.log(friends);
+
 console.log(friends.indexOf('steven'));// finne ut plasseringen
 console.log(friends.indexOf('bob')); // et element som ikke er der blir -1
 friends.push(23);
@@ -280,7 +337,9 @@ if (friends.includes('peter')) {
 } else {
     console.log('peter is not in the list');
 }
+
 */
+
 
 //------CODING CHALLENGE------
 
@@ -295,15 +354,15 @@ if (friends.includes('peter')) {
 //const calTip = bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0, 2;
 
 //function
-/*
+
 const calcTip = function (bills) {
     return bills >= 50 && bills <= 300 ? bills * 0.15 : bills * 0, 2;
 }
 const bills = [125, 555, 44];
 const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
 console.log(bills, tips);
-*/
-/*
+
+
 const calcTip = function (bills) {
     return bills >= 50 && bills <= 300 ? bills * 0.15 : bills * 0.2;
 }
@@ -311,9 +370,15 @@ const calcTip = function (bills) {
 const bills = [125, 555, 44];
 const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])]; //knytter funksjon og verdi sammen
 console.log(bills, tips);
-*/
 
-//-------OBJECTS
+
+
+
+
+
+//-------OBJECTS--------
+
+
 //array eksempel fra tidligere
 /*
 'strict';
