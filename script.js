@@ -354,14 +354,31 @@ if (friends.includes('peter')) {
 //const calTip = bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0, 2;
 
 //function
-
+/*
 const calcTip = function (bills) {
-    return bills >= 50 && bills <= 300 ? bills * 0.15 : bills * 0, 2;
+    return bills >= 50 && bills <= 300 ? bills * 0.15 : bills * 0.2;
+    //hvis bills er høyere eller samme som 50 og samtidig er bills samme eller lavere enn 300 ? da skal bills ganges med 0.15(prosentregning) : hvis ikke skal bills ganges med 0.2
 }
 const bills = [125, 555, 44];
-const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
-console.log(bills, tips);
+const tips = [calcTip(bills[0])]; // regner ut første i array
+console.log(tips);
 
+
+
+const calcTip = function (bills) {
+    return bills >= 50 && bills <= 300 ? bills * 0.15 : bills * 0.2;
+    //hvis bills er høyere eller samme som 50 og samtidig er bills samme eller lavere enn 300 ? da skal bills ganges med 0.15(prosentregning) : hvis ikke skal bills ganges med 0.2
+}
+const bills = [125, 555, 44];
+//ny array med resultatet
+const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+
+//regner sammen tips og regning
+const totals = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
+
+console.log(bills, tips, totals);
+
+/*
 
 const calcTip = function (bills) {
     return bills >= 50 && bills <= 300 ? bills * 0.15 : bills * 0.2;
@@ -371,7 +388,7 @@ const bills = [125, 555, 44];
 const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])]; //knytter funksjon og verdi sammen
 console.log(bills, tips);
 
-
+*/
 
 
 
@@ -379,10 +396,10 @@ console.log(bills, tips);
 //-------OBJECTS--------
 
 
-//array eksempel fra tidligere
+
 /*
 'strict';
-
+//array eksempel fra tidligere
 const jonasArray = [
     'jonas',
     'schmedtmann',
@@ -391,16 +408,22 @@ const jonasArray = [
 ];
 //objekter. forskjellige metoder men {} er vanlig
 const jonas = {
-    firstName: 'jonas',
+    firstName: 'jonas', // property firstname, med verdien jonas
     age: 2037-1991,
     job: 'teacher',
     friends: ['michael', 'peter', 'steven']
 };
 
-'strict';
+*/
+
+
 
 // ----- DOTS VS BRACKET
-//---rekkefølger ble alfabetisk
+
+//man bruker dot notation hvis det kun er en verdi, men hvis det er en array så må man bruke brackets
+
+/*
+//---rekkefølger ble alfabetisk i console
 const jonas = {
     firstName: 'jonas',
     lastName: 'Schmedtmann',
@@ -409,14 +432,18 @@ const jonas = {
     friends: ['michael', 'peter', 'steven']
 };
 console.log(jonas);
+
 //henter etternavn og viseer i console
 //dot metode
 console.log(jonas.lastName);
 //bracket metode
 console.log(jonas['lastName']);
 
+//hvis noe har et felles ord i seg nå kan man spesifisere å bare vise det
+//for eksempel name. 
+// namekey refererer du til i koden, 'name' er det faktiske ordet den leter etter i listen
 const nameKey = 'Name';
-//denne fungerer ikke med dot metode. dot er den endelige objektet
+//denne fungerer ikke med dot metode. dot er den endelige objektet or ikke en av flere i en array 
 //'' er en string
 console.log(jonas['first' + nameKey]);
 console.log(jonas['last' + nameKey]);
@@ -432,12 +459,13 @@ if ( jonas[interestedIn]) { //er sant hvis en av proterties skrives inn
 } else {
     console.log('wrong property');
 }
-// legge til ekstra properties
-//jonas refererer til objektet, location er den nye propertien på lik linje som job for eksempel
-//dot metode
 
+
+// legge til en ekstra property til objektet
+//jonas refererer til objektet, location er den nye propertien på lik linje som job for eksempel
+//dot metode .
 jonas.location = 'portugal';
-//bracket metode
+//bracket metode []
 jonas['twitter'] = '@jonasschmedtman';
 // nå er disse lagt til i listen i console som vi skrev tidligere
 // blir ikke lagt i promt fordi den er etter prompt i koden 
@@ -448,10 +476,14 @@ jonas['twitter'] = '@jonasschmedtman';
 //skrive setningen i kode
 // ${jonas.friends.length} viser hvor mange  det er i en array
 console.log(`${jonas.firstName} has ${jonas.friends.length} friends and his best friend is called ${jonas.friends[0]}`);
+
 */
 
-//------OBJECT METHODS
-/*
+
+//------OBJECT METHODS----------
+//--this--
+
+
 'strict';
 
 const jonas = {
@@ -461,16 +493,34 @@ const jonas = {
     job: 'teacher', // string value
     friends: ['michael', 'peter', 'steven'], //array value. array er en annen type objekt
     hasDriversLicence: true, //boolean value
-// function inni objekt, bruker :,  utenfor objekt blir det const calcAge = (birthyear)
-// function value
-    // calcAge: function(birthYear) { 
-    //     return 2037 - birthYear;
-    // }
-    //annen versjon, bedre, automatisk henter alder
-    // calcAge: function() { 
-    //     return 2037 - this.birthYear; //this  refererer til jonas, siden den er inni objektet, 
-    //     //prøv å unngå repetisjon, derfor gjør det slik
-    // }
+
+
+// function inni objekt(heter a method) bruker : og har ikke egen const, men ellers er funksjon det samme.  utenfor objekt blir det const calcAge = (birthyear)
+    
+     calcAge: function(birthYear) { 
+         return 2037 - birthYear;
+     }
+
+};
+
+// dot
+console.log(jonas.calcAge(1991));
+//brackets
+console.log(jonas['calcAge'](1991));
+
+
+// ----This---- 
+//annen versjon, bedre, automatisk henter alder
+
+
+const jonas2 = {
+    firstName: 'jonas',
+    lastName: 'Schmedtmann',
+    birthYear: 1991,
+    job: 'teacher', // string value
+    friends: ['michael', 'peter', 'steven'], //array value. array er en annen type objekt
+    hasDriversLicence: true, //boolean value
+
     calcAge: function() {  // lagre alder slik at den ikke trenger å kalkulerer funksjon om og om igjen
         this.age = 2037 - this.birthYear; //  lignende funksjon som property jonas.location
         return this.age; 
@@ -482,17 +532,24 @@ const jonas = {
     }
     // ved å bruke this kan man endre navn på objekt uten å måtte endre flere steder
 };
-//dot
-console.log(jonas.calcAge()); // svar er 46, alderen i 2037
+
+
+//bedre metode for å unngå å repetere seg selv
+//dot uten spesifisert år
+console.log(jonas2.calcAge()); // svar er 46, alderen i 2037
 //bracket, trenger å være string ''
 // console.log(jonas['calcAge'](1991)); //prøv å unngå repetisjon, derfor gjør det slik
-console.log(jonas.calcAge());
+console.log(jonas2.calcAge());
 // når kalkuleringen er gjort og man trenger å vise resultatet flere ganger så kan man i stedet 
 // kan lagre svaret slik at den ikke må gjøre funksjonen om og om igjen
 
-console.log(jonas.age); // mye bedre, effektiv
+console.log(jonas2.age); // mye bedre, effektiv
 
-//------challenge
+
+
+
+//------challenge------
+
 /*
 // "jonas is a 46 year old teacher, and he has a drivers licence" (a or no)
 // skisse. den fungerte, men kursholder ønsket noe annet
@@ -505,7 +562,9 @@ if (jonas.hasDriversLicence) {
 console.log(jonas.getSummary());
 
 
-//-----CODING CHALLENGE 3
+
+//-----CODING CHALLENGE 3--------
+
 //lage objekt til begge personene
 //this refererer til dette objektet
 const mark = {
