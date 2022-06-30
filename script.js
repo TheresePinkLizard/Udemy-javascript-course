@@ -483,7 +483,7 @@ console.log(`${jonas.firstName} has ${jonas.friends.length} friends and his best
 //------OBJECT METHODS----------
 //--this--
 
-
+/*
 'strict';
 
 const jonas = {
@@ -511,6 +511,7 @@ console.log(jonas['calcAge'](1991));
 
 // ----This---- 
 //annen versjon, bedre, automatisk henter alder
+//refererer til objektet den er i
 
 
 const jonas2 = {
@@ -519,7 +520,7 @@ const jonas2 = {
     birthYear: 1991,
     job: 'teacher', // string value
     friends: ['michael', 'peter', 'steven'], //array value. array er en annen type objekt
-    hasDriversLicence: true, //boolean value
+    hasDriversLicence: false, //boolean value
 
     calcAge: function() {  // lagre alder slik at den ikke trenger å kalkulerer funksjon om og om igjen
         this.age = 2037 - this.birthYear; //  lignende funksjon som property jonas.location
@@ -527,10 +528,14 @@ const jonas2 = {
        
     }, // husk komma her
     //challenge. legger til : for å kalkulere om jonas har førerkort eller ikke
-    getSummary: function () {
-        return `${this.firstName} is a ${this.calcAge()}-year old ${this.job}, and he has ${this.hasDriversLicence ? 'a' : 'no'} drivers licence`
+
+
+    getSummary: function(){
+            return `${this.firstname} is a ${this.calcAge()} - year old ${this.job}, 
+            and he has ${this.hasDriversLicence ? 'a' : 'no'} drivers licence.`
+            // her kommer et av ordene inn avhengig av om boolean driverslicence er true eller ikke
     }
-    // ved å bruke this kan man endre navn på objekt uten å måtte endre flere steder
+    // kan ikke anta at calcage er kalkulert tidligere(eksempel under på dette) så her må man fylle inn calcage
 };
 
 
@@ -543,14 +548,14 @@ console.log(jonas2.calcAge());
 // når kalkuleringen er gjort og man trenger å vise resultatet flere ganger så kan man i stedet 
 // kan lagre svaret slik at den ikke må gjøre funksjonen om og om igjen
 
-console.log(jonas2.age); // mye bedre, effektiv
+console.log(jonas2.age);
 
 
 
+// mini challenge------
 
-//------challenge------
 
-/*
+
 // "jonas is a 46 year old teacher, and he has a drivers licence" (a or no)
 // skisse. den fungerte, men kursholder ønsket noe annet
 if (jonas.hasDriversLicence) {
@@ -559,12 +564,12 @@ if (jonas.hasDriversLicence) {
     console.log(`${jonas.firstName} is a ${jonas.age} year old ${jonas.job}, and does not have a drivers licence `)
 }
 
-console.log(jonas.getSummary());
+console.log(jonas2.getSummary());
 
-
+*/
 
 //-----CODING CHALLENGE 3--------
-
+/*
 //lage objekt til begge personene
 //this refererer til dette objektet
 const mark = {
@@ -602,47 +607,98 @@ if (mark.bmi > john.bmi){
 } else if (john.bmi > mark.bmi){
     console.log(`${john.name}'s bmi (${john.bmi}) is higher than mark's (${mark.bmi})!`);
 }
+*/
+
+
+
+//---forsøk 2----
+/*
+
+const mark = {
+    firstName: 'Mark',
+    lastName: 'Miller',
+    mass: 78,
+    height: 1.69,
+
+
+    calcBMI: function(){
+        this.bmi = this.mass / this.height ** 2;
+        return this.bmi;
+    }
+}
+
+mark.calcBMI();
+console.log(mark.bmi)
+
+
+
+
+const john = {
+    firstName: 'John',
+    lastName: 'Smith',
+    mass: 92,
+    height: 1.95,
+
+    calcBMI: function(){
+        this.bmi = this.mass / this.height ** 2;
+        return this.bmi
+    }
+}
+john.calcBMI();
+console.log(john.bmi)
+
+
+if (mark.bmi > john.bmi){
+    console.log(`${mark.firstName} ${mark.lastName}'s bmi ${mark.calcBMI()} is higher than ${john.firstName}'s bmi at ${john.calcBMI()}`);
+} else{
+    console.log(`${john.firstName} ${john.lastName}'s bmi ${john.calcBMI()} is higher than ${mark.firstName}'s bmi at ${mark.calcBMI()}`);
+}
+
+*/
 
 
 //------ITERATION: THE FOR LOOP----
 
 
 // isteden for dette
-// console.log('lifthing weigths repetition 1');
-// console.log('lifthing weigths repetition 1');
-// console.log('lifthing weigths repetition 1');
-// console.log('lifthing weigths repetition 1');
+/*
+ console.log('lifthing weigths repetition 1');
+ console.log('lifthing weigths repetition 1');
+ console.log('lifthing weigths repetition 1');
+ console.log('lifthing weigths repetition 1');
 
-//  kan man gjøre dette
+ // så gjør man dette
+
 // let fordi det endres senere
 //loopen kjører så lenge det nedenfor er sant. mindre eller det samme som 10
 //rep ++ øker med en, hvis det skal øke med noe annet så er det rep = rep + 5
 // første punkt sier hvor loopen starter, neste sier hvor den slutter og siste sier hvor mye den øker
-// for(let rep = 1; rep <= 10; rep ++){
-//     console.log('lifthing weigths repetition 1');
-//     //putter 10 stk ved siden av setning i console
-// }
+// rep = rep + 1 (er det samme som) ++
+ for(let rep = 1; rep <= 10; rep ++){
+     console.log('lifthing weigths repetition 2nd round');
+     //putter 10 stk ikon ved siden av setning i console
+     }
 
-// for(let rep = 1; rep <= 10; rep ++){
-//     console.log(`lifthing weigths repetition ${rep}`);
-//     // denne oppdaterer verdien inni stringen og det blir publisert flere ganger
-// }
+ for(let rep = 1; rep <= 10; rep ++){
+     console.log(`lifthing weigths repetition ${rep}`);
+         // denne oppdaterer verdien inni stringen og det blir publisert flere ganger
+ }
+
 // under så starter den med 5 og ikke 1
-// for(let rep = 5; rep <= 10; rep ++){
-//     console.log(`lifthing weigths repetition ${rep}`);
-//     // denne oppdaterer verdien inni stringen og det blir publisert flere ganger
-// }
-for(let rep = 1; rep <= 10; rep ++){
-    console.log(`lifthing weigths repetition ${rep}`);
-    // denne oppdaterer verdien inni stringen og det blir publisert flere ganger
-}
+ for(let rep = 5; rep <= 10; rep ++){
+     console.log(`lifthing weigths repetition ${rep}`);
+     // denne oppdaterer verdien inni stringen og det blir publisert flere ganger
+ }
+  
+
+
+
+
+
+//47-------LOOPING ARRAYS, BREAKING AND CONTINUING
+
+
 */
-
-
-
-//-------LOOPING ARRAYS, BREAKING AND CONTINUING
-
-/*
 'strict';
 
 // husk [] for array
@@ -655,8 +711,16 @@ const jonas = [
     true //boolean
 ];
 const types = []; // har ikke noe inni seg fordi det skal basere se gpå jonas og blir definert inni loopen
+
+//hva vi ønsker å gjøre
+
 //uten loop
+
 //console.log(jonas[0]);
+//console.log(jonas[1]);
+//console.log(jonas[2]);
+//console.log(jonas[3]);
+
 
 //med loop
 
@@ -671,6 +735,7 @@ for(let i = 0; i < jonas.length; i++){
     //annen metode
     types.push(typeof jonas [i]); //samme resultat
 }
+/*
 //types[0] = 'string'; (annen metode, uten loop)
 console.log(types);
 
@@ -699,7 +764,7 @@ for(let i = 0; i < jonas.length; i++){
     if(typeof jonas[i] === 'number') break;
     console.log(jonas[i], typeof jonas[i]);    
 }
-*/
+
 
 
 //---------LOOPING BACKWARDS AND LOOPS IN LOOPS----------
