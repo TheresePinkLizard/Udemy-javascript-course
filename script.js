@@ -733,12 +733,13 @@ for(let i = 0; i < jonas.length; i++){
     //for å loope kun det som er typesof, lage egen types const og skrive inn under:
     //types[i] = typeof jonas[i];
     //annen metode
-    types.push(typeof jonas [i]); //samme resultat
+    // push legger til et nytt element
+    types.push(typeof jonas [i]); //samme resultat, men bedre
 }
 /*
 //types[0] = 'string'; (annen metode, uten loop)
 console.log(types);
-
+*/
 const years = [1991, 2007, 1969, 2020];
 
 const ages = [];
@@ -746,6 +747,7 @@ const ages = [];
 for (let i = 0; i < years.length; i++){
     ages.push(2037 - years[i])
     //kalkulerer en og en 
+    // hadde ikke gått hvis ikke det blir kalkulert en og en fordi years har flere verdier i seg
 }
 console.log(ages); //viser resultat i console
 
