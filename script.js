@@ -699,6 +699,7 @@ if (mark.bmi > john.bmi){
 
 
 */
+/*
 'strict';
 
 // husk [] for array
@@ -710,7 +711,7 @@ const jonas = [
     ['michael', 'peter', 'steven'], // object
     true //boolean
 ];
-const types = []; // har ikke noe inni seg fordi det skal basere se gpå jonas og blir definert inni loopen
+const types = []; // har ikke noe inni seg fordi det skal basere seg på jonas og blir definert inni loopen
 
 //hva vi ønsker å gjøre
 
@@ -739,7 +740,7 @@ for(let i = 0; i < jonas.length; i++){
 /*
 //types[0] = 'string'; (annen metode, uten loop)
 console.log(types);
-*/
+
 const years = [1991, 2007, 1969, 2020];
 
 const ages = [];
@@ -768,7 +769,7 @@ for(let i = 0; i < jonas.length; i++){
 }
 
 
-
+*/
 //---------LOOPING BACKWARDS AND LOOPS IN LOOPS----------
 /*
 'strict';
@@ -783,7 +784,7 @@ const jonas = [
 
 //baklengs loop
 
-//starter på jonas.lenght. 
+//starter på jonas.length. 
 // hvis iterasjon er samme eller større enn 0. slik at det stopper der.
 // i-- for å gå motsatt vei
 
@@ -815,13 +816,14 @@ for (let exercise = 1; exercise < 4; exercise++) {
 /*
 'strict';
 // for referanse
-/*
+
 for(let rep = 1; rep <= 10; rep ++){
          console.log(`lifthing weigths repetition ${rep}`);
          
     }
-/
-/*
+
+// while loop kan brukes til mer ting
+
 let rep = 1; //trengte ikke å lage en variabel med loop alene men trenger det nå
 //denne kjøres imens noe er sant. i dette tilfelle kjøres den når rep er samme eller mindre enn 10
 while (rep <= 10) {
@@ -840,18 +842,19 @@ while (dice !== 6) {
     // === hvis dice er det samme som 6
     if (dice === 6) console.log('loop is about to end');
 }
+// trenger ikke spesifisere hva som skjer når loop ikke er sann fordi det er en while loop. 
+//hvis man ikke trenger en "else" så kan man bruke while loop
 */
-
 //------CODING CHALLENGE 4------
-/*
 
+/*
 
 'strict';
 
 
 
 const calcTip = function (bills) {
-    return bills >= 50 && bills <= 300 ? bills * 1.15 : bills * 0,2*;
+    return bills >= 50 && bills <= 300 ? bills * 1.15 : bills * 0,2;
 }
 
 const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
@@ -859,7 +862,7 @@ const tips = [];
 const totals = [];
 
 for(let i = 0; i < bills.length; i++){
-    const tip = calcTip(bills[i]);
+    const tip = calcTip(bills[i]); // kalkuleres en gang og så hentes verdien i linjene under
     tips.push(tip);
     totals.push(tip + bills[i]);
-}*/
+}
